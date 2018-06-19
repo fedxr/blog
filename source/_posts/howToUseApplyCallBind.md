@@ -11,15 +11,15 @@ tags:
 　　apply()方法接受两个参数：**一个是在其中运行的函数的作用域，另一个是参数数组**。其中，第二个参数可以是Array的实例，也可以是arguments对象。例如：
 ```
 function sum(num1, num2) {
-	return num1 + num2;
+    return num1 + num2;
 }
 
 function callSum1(num1, num2) {
-	return sum.apply(this, arguments);   //传入arguments对象
+    return sum.apply(this, arguments);   //传入arguments对象
 }
 
 function callSum2(num1, num2) {
-	return sum.apply(this, [num1, num2]);  //传入数组
+    return sum.apply(this, [num1, num2]);  //传入数组
 }
 
 alert(callSum1(10, 10));  //20
@@ -30,10 +30,10 @@ alert(callSum2(10, 10));  //20
 　　call()方法与apply()方法的**作用相同，它们的区别仅在于接收参数的方式不同**。对于call()方法而言，第一个参数是this值没有变化，变化的是其余参数都直接传递给函数。换句话说，在使用call()方法时，传递给函数的参数必须逐个列举出来，如：
 ```
 function sum(sum1, sum2) {
-	return num1 + num2;
+    return num1 + num2;
 }
 function callSum(sum1, sum2) {
-	return sum.call(this, num1, num2);
+    return sum.call(this, num1, num2);
 }
 alert(callSum(10, 10));  //20
 ```
@@ -45,7 +45,7 @@ window.color = 'red';
 var o = {color: 'blue'};
 
 function sayColor() {
-	alert(this.color);
+    alert(this.color);
 }
 
 sayColor();               //red
@@ -63,7 +63,7 @@ window.color = 'red';
 var o = {color: 'blue'};
 
 function sayColor() {
-	alert(this.color);
+    alert(this.color);
 }
 
 var objectSayColor = sayColor.bind(o);
@@ -72,7 +72,7 @@ objectSayColor();    //blue
 　　在这里，sayColor()调用bind()并传入对象o，创建了objectSayColor()函数。objectSayColor()函数的this值等于o，因此即使是在全局作用域中调用这个函数，也会看到'blue'。
 　　bind()方法的浏览器兼容性如下：
 
-![bind-support](howToUseApplyCallBind/bind-support.png)
+![bind_support](bind_support.png)
 　　
 　　*<small>参考书籍：[《JavaScript高级程序设计（第三版）》，Professional JavaScript for Web Developers 3rd Edition，作者: Nicholas C.Zakas ](https://book.douban.com/subject/10546125/)*
 
